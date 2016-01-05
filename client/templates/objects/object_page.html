@@ -1,0 +1,49 @@
+<template name="objectPage">
+	<div class="module__header__bottom"><h2>Objet<span>object</span></h2></div>
+	<div class="content__posts">	
+		<div class="module__wrapper">
+			<span class="content__posts__date">Date : {{date}}</span>
+			<h2 class="content__posts__title">{{title}}</h2>
+			<p class="content__posts__para">{{text}}</p>
+			<div class="content__posts__extra">
+				<ul>
+					<li><img src="http://www.vetprofessionals.com/catprofessional/images/home-cat.jpg" alt=""></li>
+					<li><img src="http://www.vetprofessionals.com/catprofessional/images/home-cat.jpg" alt=""></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="content__posts__menu">
+		<ul>
+			{{#each objects}}
+			<li class="content__posts__menu__list">
+				<a href="{{pathFor 'objectPage'}}"></a>
+				<span class="content__posts__menu__list__date">{{date}}</span>
+				<h3 class="content__posts__menu__list__title">{{title}}</h3>
+				<p class="content__posts__menu__list__extrait">{{text}}</p>
+			</li>
+			{{/each}}
+		</ul>
+	</div>
+	<!-- Holo -->
+	<!-- <div class="content__posts__holo">
+		<div class="content__posts__holo__viewer">
+			<div class="align-center">
+			<span>45%</span>
+			<p>Modelisation de l'objet en cours</p>
+			</div>
+		</div>
+		<div class="content__posts__carac">
+			<h3>Spécifications de l'objet</h3>
+			<ul>
+				<li><p><span>ID : </span>01</p></li>
+				<li><p><span>Nom : </span>Nom de l'objet</p></li>
+				<li><p><span>Date : </span>01 / 02 / 3014</p></li>
+				<li><p><span>Hauteur : </span>14cm</p></li>
+				<li><p><span>Largeur : </span>10cm</p></li>
+				<li><p><span>Poids : </span>40Kg</p></li>
+			</ul>
+		</div>
+	</div> -->		
+
+</template>

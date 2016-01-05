@@ -1,0 +1,15 @@
+<template name="layout">
+  <!-- ####### W R A P P E R ####### -->
+  <div class="wrapper">
+    <!-- ####### H E A D E R ####### -->
+    <div class="header">
+      <div class="logo">
+        <a href="{{pathFor 'home'}}"><h1 class="logo-title">Arketype</h1><span class="logo-subtitle">Corporation</span></a>
+      </div>
+    </div>
+    {{> sidebar}}
+    <div class="content">
+      {{> yield}}   
+    </div>
+  </div>
+</template>

@@ -1,0 +1,28 @@
+<template name="postPage">
+	<div class="module__header__bottom"><h2>Article<span>post</span></h2></div>
+	<div class="content__posts">	
+		<div class="module__wrapper">
+			<span class="content__posts__date">Date : {{date}}</span>
+			<h2 class="content__posts__title">{{title}}</h2>
+			<p class="content__posts__para">{{text}}</p>
+			<div class="content__posts__extra">
+				<ul>
+					<li><img src="http://www.vetprofessionals.com/catprofessional/images/home-cat.jpg" alt=""></li>
+					<li><img src="http://www.vetprofessionals.com/catprofessional/images/home-cat.jpg" alt=""></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="content__posts__menu">
+		<ul>
+			{{#each posts}}
+			<li class="content__posts__menu__list">
+				<a href="{{pathFor 'postPage'}}"></a>
+				<span class="content__posts__menu__list__date">{{date}}</span>
+				<h3 class="content__posts__menu__list__title">{{title}}</h3>
+				<p class="content__posts__menu__list__extrait">{{text}}</p>
+			</li>
+			{{/each}}
+		</ul>
+	</div>
+</template>
