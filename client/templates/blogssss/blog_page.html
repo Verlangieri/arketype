@@ -1,0 +1,22 @@
+<template name="blogPage">
+	<div class="module__header__bottom"><h2>Article<span>post</span></h2></div>
+	<div class="content__posts">	
+		<div class="module__wrapper">
+			<span class="content__posts__date">Date : {{date}}heyyy</span>
+			<h2 class="content__posts__title">{{title}}coucou</h2>
+			<p class="content__posts__para">{{text}}c'est le contenu</p>
+		</div>
+	</div>
+	<div class="content__posts__menu">
+		<ul>
+			{{#each blogs}}
+			<li class="content__posts__menu__list">
+				<a href="{{pathFor 'blogPage'}}"></a>
+				<span class="content__posts__menu__list__date">{{date}}</span>
+				<h3 class="content__posts__menu__list__title">{{title}}</h3>
+				<p class="content__posts__menu__list__extrait">{{text}}</p>
+			</li>
+			{{/each}}
+		</ul>
+	</div>
+</template>

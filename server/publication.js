@@ -7,3 +7,7 @@ Meteor.publish('posts', function() {
 Meteor.publish('objects', function() {
   return Objects.find();
 });
+
+Meteor.publish('postsBlog', function() {
+  return PostsBlog.find();
+});

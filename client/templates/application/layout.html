@@ -1,5 +1,11 @@
 <template name="layout">
+  <!-- Modal event -->
+  <div id="modal">
+    <div id="outer-modal"></div>
+    <div id="inner-modal"></div>
+  </div>
   <!-- ####### W R A P P E R ####### -->
+  <div id="grid-background"></div>
   <div class="wrapper">
     <!-- ####### H E A D E R ####### -->
     <div class="header">
@@ -7,9 +13,12 @@
         <a href="{{pathFor 'home'}}"><h1 class="logo-title">Arketype</h1><span class="logo-subtitle">Corporation</span></a>
       </div>
     </div>
-    {{> sidebar}}
-    <div class="content">
-      {{> yield}}   
+    <div class="wrapper-responsive">
+      {{> sidebar}}
+      <div class="content">
+        {{> yield}}
+      </div>
     </div>
+    <div class="clearfix"></div>
   </div>
 </template>

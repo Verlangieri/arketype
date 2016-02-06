@@ -1,13 +1,13 @@
 <template name="home_objects">
 <!-- ####### O B J E C T S ####### -->
   <div class="content__module__news">
-    <div class="module__header__top"><h2>Objet <span>Object</span></h2></div>
+    <div class="module__header__bottom"><h2>Objet <span>Object</span></h2></div>
     {{#each objects}}
     <div class="module__wrapper clearfix">
     	<a class="content__module__news__link animation-hover" href="{{pathFor 'objectPage'}}"></a>
       <span class="content__module__news__date">{{date}}</span>
       <h2 class="content__module__news__title">{{title}}</h2>
-      <p class="content__module__news__para">{{text}}</p>
+      <p class="content__module__news__para">{{splitTextLong text}}</p>
     </div>
     {{/each}}
     <a href="{{pathFor 'objectsList'}}" class="content__module__link">

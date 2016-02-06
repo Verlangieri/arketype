@@ -7,22 +7,43 @@
 			<p class="content__posts__para">{{text}}</p>
 			<div class="content__posts__extra">
 				<ul>
-					<li><img src="http://www.vetprofessionals.com/catprofessional/images/home-cat.jpg" alt=""></li>
-					<li><img src="http://www.vetprofessionals.com/catprofessional/images/home-cat.jpg" alt=""></li>
+					<li><a href="#" class="modal-link" data-video="https://www.youtube.com/embed/257OBwNXUZQ"><img src="http://www.vetprofessionals.com/catprofessional/images/home-cat.jpg" alt=""></a></li>
+					<li><a href="#" class="modal-link" data-video="https://www.youtube.com/embed/257OBwNXUZQ"><img src="http://www.vetprofessionals.com/catprofessional/images/home-cat.jpg" alt=""></a></li>
 				</ul>
 			</div>
 		</div>
 	</div>
-	<div class="content__posts__menu">
-		<ul>
-			{{#each posts}}
-			<li class="content__posts__menu__list">
-				<a href="{{pathFor 'postPage'}}"></a>
-				<span class="content__posts__menu__list__date">{{date}}</span>
-				<h3 class="content__posts__menu__list__title">{{title}}</h3>
-				<p class="content__posts__menu__list__extrait">{{text}}</p>
-			</li>
-			{{/each}}
-		</ul>
+	<div class="content__posts__menuu"><span class="menu__extra__link active" data-menu="articles">Articles</span><span class="menu__extra__link" data-menu="holo">Lecteur 3D</span></div>
+	<div class="content__posts__menu__posts">
+		<div id="menu__extra__content--articles" class="content__posts__menu menu__extra__content">
+			<ul>
+				{{#each posts}}
+				<li class="content__posts__menu__list">
+					<a href="{{pathFor 'postPage'}}"></a>
+					<span class="content__posts__menu__list__date">{{date}}</span>
+					<h3 class="content__posts__menu__list__title">{{title}}</h3>
+					<p class="content__posts__menu__list__extrait">{{splitText text}}</p>
+				</li>
+				{{/each}}
+			</ul>			
+		</div>
+		<div id="menu__extra__content--holo" class="content__posts__holo menu__extra__content">
+			<div class="content__posts__holo__viewer">
+				<div class="align-center">
+				<span>45%</span>
+				<p>Modelisation de l'objet en cours</p>
+				</div>
+			</div>
+			<div class="content__posts__carac">
+				<ul>
+					<li><p><span>ID : </span>01</p></li>
+					<li><p><span>Nom : </span>Nom de l'objet</p></li>
+					<li><p><span>Date : </span>01 / 02 / 3014</p></li>
+					<li><p><span>Hauteur : </span>14cm</p></li>
+					<li><p><span>Largeur : </span>10cm</p></li>
+					<li><p><span>Poids : </span>40Kg</p></li>
+				</ul>
+			</div>
+		</div>
 	</div>
 </template>

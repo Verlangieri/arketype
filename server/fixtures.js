@@ -19,3 +19,11 @@ if (Objects.find().count() === 0) {
     idObject: 01
   });
 }
+
+if (PostsBlog.find().count() === 0) {
+  PostsBlog.insert({
+    date: '12 Janv 3014',
+    title: 'Article de blog de test',
+    text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro nihil, assumenda dolorum quaerat. Amet, temporibus labore corrupti nobis at nam molestias, quaerat, deserunt aut vel adipisci neque. Delectus, distinctio in.'
+  });
+}
