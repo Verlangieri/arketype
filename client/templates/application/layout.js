@@ -94,3 +94,39 @@ Template.layout.events = {
     // backgroundAnimation();
   }
 }
+
+Template.layout.rendered = function() {
+    if(!this._rendered) {
+      this._rendered = true;
+
+        if (Meteor.isClient) {
+          var compteur = 70;       
+          var compteurInterval = function(){
+
+          if (compteur < 101){
+            $('#message-compteur').empty().append(compteur+"%");
+              compteur++;
+            } else {
+              clearInterval(compteurInterval);
+            }
+          }
+          Meteor.setInterval(compteurInterval,100);
+        }
+
+
+        //$('#message-compteur')
+        TweenMax.set($('.header'), {scale: 1.3});
+        TweenMax.from($("#loading-message"), 0.8, {autoAlpha:0, ease: Power1.easeIn, delay: 0.5});
+        TweenMax.from($("#loading-header"), 0.8, {width: '0', ease: Power1.easeIn, delay: 1});
+        TweenMax.from($(".logo-title"), 1, {marginTop: '50px',autoAlpha: 0, ease: Power1.easeOut, delay: 2});
+        TweenMax.from($(".logo-subtitle"), 1, {autoAlpha: 0, ease: Power1.easeOut, delay: 2.5});
+        TweenMax.to($("#loading-message"), 0.5, {autoAlpha:0, marginTop: '25px', delay: 3.5});
+        TweenMax.to($(".header"), 1, {autoAlpha: 0, ease: Power1.easeOut, delay: 4, onComplete:function(){
+          $('#loading-header').removeAttr('id');
+          TweenMax.set($('.header'), {autoAlpha: 1,width: '100%',scale: 1});
+          TweenMax.from($(".header"), 1, {autoAlpha: 0,top: '-25px',ease: Power1.easeOut, delay: 0.3});
+
+        }});
+        TweenMax.to($("#loading-page"), 0.5, {autoAlpha: 0, ease: Power1.easeIn, delay: 5});
+    }
+};

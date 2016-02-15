@@ -1,5 +1,5 @@
 <template name="postPage">
-	<div class="module__header__bottom"><h2>Article<span>post</span></h2></div>
+	<div class="module__header__bottom"><h2 class="title-current">Article<span>post</span></h2></div>
 	<div class="content__posts">	
 		<div class="module__wrapper">
 			<span class="content__posts__date">Date : {{date}}</span>
@@ -13,7 +13,6 @@
 			</div>
 		</div>
 	</div>
-	<div class="content__posts__menuu"><span class="menu__extra__link active" data-menu="articles">Articles</span><span class="menu__extra__link" data-menu="holo">Lecteur 3D</span></div>
 	<div class="content__posts__menu__posts">
 		<div id="menu__extra__content--articles" class="content__posts__menu menu__extra__content">
 			<ul>
@@ -26,24 +25,6 @@
 				</li>
 				{{/each}}
 			</ul>			
-		</div>
-		<div id="menu__extra__content--holo" class="content__posts__holo menu__extra__content">
-			<div class="content__posts__holo__viewer">
-				<div class="align-center">
-				<span>45%</span>
-				<p>Modelisation de l'objet en cours</p>
-				</div>
-			</div>
-			<div class="content__posts__carac">
-				<ul>
-					<li><p><span>ID : </span>01</p></li>
-					<li><p><span>Nom : </span>Nom de l'objet</p></li>
-					<li><p><span>Date : </span>01 / 02 / 3014</p></li>
-					<li><p><span>Hauteur : </span>14cm</p></li>
-					<li><p><span>Largeur : </span>10cm</p></li>
-					<li><p><span>Poids : </span>40Kg</p></li>
-				</ul>
-			</div>
 		</div>
 	</div>
 </template>

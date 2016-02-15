@@ -4,13 +4,25 @@
     <div id="outer-modal"></div>
     <div id="inner-modal"></div>
   </div>
+  <div id="loading-page">
+    <div id="loading-message">
+      <p>Chargement de l'interface en cours : <span id="message-compteur"></span></p>
+    </div>
+  </div>
   <!-- ####### W R A P P E R ####### -->
   <div id="grid-background"></div>
   <div class="wrapper">
     <!-- ####### H E A D E R ####### -->
-    <div class="header">
+    <div id="loading-header" class="header">
       <div class="logo">
-        <a href="{{pathFor 'home'}}"><h1 class="logo-title">Arketype</h1><span class="logo-subtitle">Corporation</span></a>
+        <a href="{{pathFor 'home'}}">
+          <div class="container__logo-title">
+            <h1 class="logo-title">Arketype</h1>
+          </div>
+          <div class="container__logo-subtitle">
+            <span class="logo-subtitle">Corporation</span>
+          </div>
+        </a>
       </div>
     </div>
     <div class="wrapper-responsive">

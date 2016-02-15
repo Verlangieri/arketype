@@ -24,7 +24,10 @@ fieldset,hr{border:0;padding:0}html{color:#222;font-size:1em;line-height:1.4}::-
    ========================================================================== */
    html, body, .wrapper, {margin: 0;padding: 0;min-height: 100%;width: 100%;}
    html {padding: 30px;}
-   #grid-background {background: url(images/motif.png), linear-gradient(45deg, #101a22, #28445f);;width: 100%;height: 100%;position: fixed;top: 0;left: 0;}
+   #loading-page {z-index: 100000;}
+   #loading-message {margin: 10px}
+   #loading-message p {color: $secondary-color;text-align: right;}
+   #grid-background, #loading-page {background: url(images/motif.png), linear-gradient(45deg, #101a22, #28445f);width: 100%;height: 100%;position: fixed;top: 0;left: 0;}
    p, a {color : $primary-color; font-family: mont;font-size: 11px;}
    a {text-decoration: none;}
    span {color : $secondary-color;}
@@ -45,11 +48,15 @@ fieldset,hr{border:0;padding:0}html{color:#222;font-size:1em;line-height:1.4}::-
 /* ==========================================================================
    Header
    ========================================================================== */
+   .header {position: relative;}
+   #loading-header {position: fixed;z-index: 10000000;top: 50%;left: 50%;margin-top: -110px;margin-left: -135px;}
    .logo {text-transform: uppercase;max-width: 300px;text-align: center;margin: auto;padding: 50px 0;}
+   .container__logo-title {height: 55px; overflow: hidden}
    .logo-title {font-family: sol;color: $secondary-color;font-size: 45px;margin-bottom: 13px;letter-spacing: 5px;}
-   .logo-subtitle {font-family: mont-light;letter-spacing: 10px;font-size: 8px;color: $primary-color;}
-   .logo-subtitle:before {display: block;content: "";border-top: 1px solid $secondary-color-o;max-width: 230px;margin: 0 auto 3px auto;}
-   .logo-subtitle:after {display: block; content: ""; border-top: 1px solid #508bc7; max-width: 30px; width: 100%;position: absolute;right: 0;left: 0;margin: -20px auto 0;}
+   .container__logo-subtitle {height:25px; overflow: hidden;position: relative;padding-top: 10px;}
+   .logo-subtitle {font-family: mont-light;letter-spacing: 10px;font-size: 8px;color: $primary-color;display: block;position: relative;}
+   .container__logo-subtitle:before {display: block;content: "";border-top: 1px solid $secondary-color-o;max-width: 230px;margin: 0 auto 3px auto;position: absolute; top: 0; left: 0; right: 0;}
+   .container__logo-subtitle:after {display: block; content: ""; border-top: 1px solid #508bc7; max-width: 30px; width: 100%;position: absolute;top:0; left: 0; right: 0; margin: 0 auto 0;}
 /* ==========================================================================
    Sidebar
    ========================================================================== */
@@ -220,6 +227,13 @@ fieldset,hr{border:0;padding:0}html{color:#222;font-size:1em;line-height:1.4}::-
       .content {width: 100%;left: 0;position: static;}
       
    }
+   @media screen and (max-width: 760px){
+      /* Un article */
+      .content__posts, .content__posts__menu__posts,.content__posts__menuu {width: 100%;}
+      #menu__extra__content--articles,.content__posts__holo__viewer {border-left: 1px solid $secondary-color}
+      .content__posts__menuu {margin-top: 40px!important;}
+   }
+
    @media screen and (max-width: 620px){
 
       /* 2 COL LIST tous les articles */
