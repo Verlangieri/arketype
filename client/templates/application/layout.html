@@ -11,6 +11,20 @@
   </div>
   <!-- ####### W R A P P E R ####### -->
   <div id="grid-background"></div>
+  <canvas id="canvas-background"></canvas>
+  <script>
+        var canvas = document.getElementById('canvas-background');
+        var context = canvas.getContext('2d');
+
+        context.rect(0, 0, window.innerWidth, window.innerHeight);
+        var grd = context.createLinearGradient(0, 0, canvas.width, canvas.height);
+        grd.addColorStop(0, '#101a22');   
+        grd.addColorStop(1, '#28445f');
+        context.fillStyle = grd;
+        context.fill();
+
+      </script>
+
   <div class="wrapper">
     <!-- ####### H E A D E R ####### -->
     <div id="loading-header" class="header">
@@ -21,6 +35,7 @@
           </div>
           <div class="container__logo-subtitle">
             <span class="logo-subtitle">Corporation</span>
+            <span class="container__logo-subtitle-middle"></span>
           </div>
         </a>
       </div>
