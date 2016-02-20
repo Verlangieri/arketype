@@ -19,6 +19,7 @@ fieldset,hr{border:0;padding:0}html{color:#222;font-size:1em;line-height:1.4}::-
    @font-face {font-family: mont; src: url(fonts/Montserrat-Regular.otf);}
    @font-face {font-family: mont; font-weight: bold; src: url(fonts/Montserrat-Bold.otf);}
    @font-face {font-family: mont-light; src: url(fonts/Montserrat-Light.otf);}
+   @font-face {font-family: agency; src: url(fonts/Agency.ttf);}
    @font-face {font-family: agency; font-weight: bold; src: url(fonts/Agency-Bold.ttf);}
 /* ==========================================================================
    Main style
@@ -65,32 +66,49 @@ fieldset,hr{border:0;padding:0}html{color:#222;font-size:1em;line-height:1.4}::-
    Sidebar
    ========================================================================== */
    .sidebar {position: absolute;width: 250px;top:0px;left:0px;}
+   .corner {position: relative;margin-bottom: 5px;}
+   .corner:before, .corner:after {content: ''; display: block; height: 16px; width: 16px; position: absolute; }
+   .corner:before {left: 0; top: 0; border-left: 1px solid $secondary-color; border-top: 1px solid $secondary-color; }
+   .corner:after {bottom: 0; right: 0; border-right: 1px solid $secondary-color; border-bottom: 1px solid $secondary-color; }
    /* info */
    .sidebar__info {margin-bottom: 10px;}
    .sidebar__info__clock {width: 110px;position: relative;display: inline-block;vertical-align: top;}
-   #clock-minute {stroke-dashoffset: 155; stroke-dasharray: 157;}
-   #clock-second {stroke-dashoffset: 0; stroke-dasharray: 5;transform-origin: center;animation: rotate 30s infinite;}
-   #clock-hour {stroke-dashoffset: 0; stroke-dasharray: 2;transform-origin: center;animation: rotate 110s infinite;}
+   #clock-minute {stroke-dashoffset: 155; stroke-dasharray: 157;transform-origin: center;}
+   #clock-second {stroke-dashoffset: 0; stroke-dasharray: 5;transform-origin: center;-webkit-animation: rotate 60s linear infinite;-moz-animation: rotate 60s linear infinite;-o-animation: rotate 60s linear infinite;animation: rotate 60s linear infinite;}
+   #clock-hour {stroke-dashoffset: 0; stroke-dasharray: 2;transform-origin: center;-webkit-animation: rotate 120s linear infinite;-moz-animation: rotate 120s linear infinite;-o-animation: rotate 120s linear infinite;animation: rotate 120s linear infinite;}
    #clock-hour-text {font-family: sol; font-size: 30px; text-align: center; display: block; width: 50%; margin: auto; position: absolute; top: 35px; left: 0; bottom: 0; right: 0;}
    .sidebar__info__weather {font-family: mont-light;font-size: 10px;display: inline-block;vertical-align: bottom;padding: 10px 0 0 10px}
    .sidebar__info__weather li {margin-bottom: 3px;color: $primary-color;}
    .sidebar__info__weather li:before {display: inline-block;content: "";width: 5px;height: 5px;background: $secondary-color;vertical-align: top;margin-right: 5px;margin-top: 2px;}
    .sidebar__info__weather li span {font-family: mont;text-transform: uppercase;}
+   @-webkit-keyframes rotate {
+     from {-webkit-transform: rotateZ(0deg)}
+      to {-webkit-transform: rotateZ(360deg)}
+   }
+   @-moz-keyframes rotate {
+     from {-webkit-transform: rotateZ(0deg)}
+      to {-webkit-transform: rotateZ(360deg)}
+   }
+   @-o-keyframes rotate {
+     from {-webkit-transform: rotateZ(0deg)}
+      to {-webkit-transform: rotateZ(360deg)}
+   }
    @keyframes rotate {
-      from {transform: rotateZ(0deg)}
-      to {transform: rotateZ(360deg)}
+     from {-webkit-transform: rotateZ(0deg)}
+      to {-webkit-transform: rotateZ(360deg)}
    }
    /* Blog */
-   .sidebar__blog__link {font-family: sol; text-transform: uppercase;}
-   .sidebar__blog__link span {font-family: mont;font-weight: bold;}
+   .sidebar__blog {padding: 16px 0}
+   .sidebar__blog__link {font-family: sol; text-transform: uppercase; text-align: center; display: block; font-size: 24px; letter-spacing: 1px;}
+   .sidebar__blog__link span {font-family: agency; font-weight: bold;display: block; font-size: 19px; letter-spacing: initial; position: relative; right: -55px;}
    /* Geographic */
-   .sidebar__geo {margin-bottom: 10px;border-top: 1px;border-bottom: 1px;border-style: dashed;border-color: $secondary-color;padding: 15px;position: relative;}
-   .sidebar__geo img {width: 100%;}
-   .sidebar__geo__link {position: absolute;top: 0;left: 0;width: 100%;height: 100%;}
-   .sidebar__geo__cover {background: $secondary-color; display: block; width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0.1; }
+   .sidebar__geo {padding: 16px 0;overflow: hidden;}
+   .sidebar__geo__link {font-family: sol; text-transform: uppercase; text-align: center; display: block; font-size: 20px; letter-spacing: 1px; position: relative; padding-top: 10px; margin-left: -45px;}
+   .sidebar__geo__link__geo {font-family: agency; font-weight: bold;font-size: 30px; letter-spacing: initial; margin-right: 5px;}
+   .sidebar__geo__link__subtitle {    position: absolute; top: 0; right: 15px; font-size: 11px; text-transform: capitalize; font-family: agency;}
    /* Social */
    .sidebar__social__icons , .sidebar__social__module {float: left;}
-   .sidebar__social {padding: 0 10px;}
+   .sidebar__social {padding: 0 10px;margin-top: 25px;max-width: 250px;}
    .sidebar__social__icons {width: 40%}
    .sidebar__social__icons svg {width: 23px;}
    .sidebar__social__icons path {transition: all 0.5s ease}
@@ -111,14 +129,15 @@ fieldset,hr{border:0;padding:0}html{color:#222;font-size:1em;line-height:1.4}::-
 /* ==========================================================================
    Home - News - Objetcs
    ========================================================================== */
-   .content__module__link {margin-top: 9px;display: block;}
+   .content__module__link {margin-top: 9px; display: inline-block; color: $secondary-color; padding: 5px; border: 1px solid $secondary-color;transition: all .3s ease}
+   .content__module__link:hover {background: $secondary-color-o}
    .content__module__news {width: 30%;float: left;margin-right: 3.5%}
    .content__module__news .module__wrapper:after {content: "";display: block;height: 8px;width: 8px;background: $secondary-color;position: relative;right: -100%;margin-left: -8px;}
    .content__module__news__date {font-family: mont;font-weight: bolder;text-transform: uppercase;font-size: 10px;letter-spacing: 0.5px;text-align: right;display: block;}
    .content__module__news__title {font-family: mont-light; color: $primary-color;font-size: 12px;margin-bottom: 5px;border-bottom: 1px solid $secondary-color; padding-bottom: 5px;margin-top: 12px;}
    .content__module__news__para {font-family: mont-light;font-size: 11px;line-height: 12px;color: $secondary-color}
    .content__module__news__link {position: absolute;width: 100%;height: 100%;top: 0;left: 0;}
-   .content__module__arrow {width: 11px; height: 11px; display: inline; fill: $secondary-color;}
+   .content__module__arrow {width: 11px; height: 11px; display: inline; fill: $secondary-color;position: relative;top: -1px;}
 /* ==========================================================================
    Home - Videos
    ========================================================================== */
@@ -143,7 +162,7 @@ fieldset,hr{border:0;padding:0}html{color:#222;font-size:1em;line-height:1.4}::-
    .content__posts__extra li {width: 100px;height: 100px;display: inline-block;overflow: hidden;border: 1px solid $secondary-color;margin-right: 10px;}
    .content__posts__extra img {width: 100%;}
    /* List */
-   .content__post__list {border-bottom: 1px solid}
+   .content__post__list {border-bottom: 1px solid $secondary-color}
    .posts-list {float: left; width: 100%;max-width: 23.5%; margin-right: 2%;margin-bottom: 20px;position: relative;height: 150px;}
    .posts-list a {position: absolute;top: 0;left: 0;width: 100%;height: 100%;}
    .posts-list:nth-child(4n) {margin-right: 0;}
@@ -201,14 +220,8 @@ fieldset,hr{border:0;padding:0}html{color:#222;font-size:1em;line-height:1.4}::-
    #outer-modal {position: fixed; height: 100%; width: 100%; top: 0; left: 0; z-index: 99;}
    #inner-modal {padding: 15px;border: 1px solid #508bc7;position: fixed;z-index: 100;top: 50%;left: 50%;margin-left: -280px;margin-top: -157px;}
    #inner-modal-close {position: absolute;color: $secondary-color; right: 0; top: 0; margin-top: -18px; font-size: 11px; font-family: mont-light;text-transform: uppercase;cursor: pointer;}
-  #loaderModal {
-   position: fixed;
-   right: 0;
-   top: 15px;
-   font-size: 11px;
-   padding-right: 25px;
-
-    font-family: mont;}
+   #loaderModal {position: fixed; font-size: 11px; font-family: mont; opacity: 0; width: 213px; height: 17px; top: 0; bottom: 0; left: 0; right: 0; margin: auto;}
+   #loaderModal:before {    background: url(/images/loader.svg) no-repeat; content: ''; display: inline-block; width: 15px; height: 15px; background-size: 100%; margin-right: 5px; vertical-align: middle; animation: rotate 1.5s linear infinite; position: relative; top: -2px;}
    /* ==========================================================================
    Responsive
    ========================================================================== */
@@ -240,9 +253,10 @@ fieldset,hr{border:0;padding:0}html{color:#222;font-size:1em;line-height:1.4}::-
       .posts-list:nth-of-type(2n) {margin-right: 2%}
       .posts-list:nth-of-type(3n+3) {margin-right: 0}
       
-      .sidebar {width: 100%;position: static;margin-bottom: 25px;display: none;}
-      .content {width: 100%;left: 0;position: static;}
-      
+      .sidebar {width: 100%;position: static;margin-bottom: 25px;}
+      .sidebar__geo, .sidebar__blog {display: inline-block;width: 49%;}
+      .sidebar__info {display: none;}
+      .content {width: 100%;left: 0;position: static;float: left;padding-bottom: 25px;}      
    }
    @media screen and (max-width: 760px){
       /* Un article */
@@ -257,16 +271,14 @@ fieldset,hr{border:0;padding:0}html{color:#222;font-size:1em;line-height:1.4}::-
       #inner-modal img {width: 100%;}
        #inner-modal iframe,
        #inner-modal object,
-       #inner-modal embed {
-      top: 0;
-      left: 0;
-      width: 100%;
-      }
+       #inner-modal embed {top: 0; left: 0; width: 100%; }
       /* 2 COL LIST tous les articles */
       .posts-list {max-width: 49%;margin-right: 2%}
       .posts-list:nth-of-type(3n+3) {margin-right: 2%}
-      .posts-list:nth-of-type(2n) {margin-right: 0}
-      
+      .posts-list:nth-of-type(2n) {margin-right: 0}      
+   }
+   @media screen and (max-width: 540px){
+      .sidebar__geo, .sidebar__blog {width: 100%;}
    }
    @media screen and (max-width: 480px){
       /* tous les articles */

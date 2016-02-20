@@ -2,6 +2,10 @@
 Accounts.ui.config({
     passwordSignupFields: "USERNAME_ONLY"
 });
+// Désactive les enregistrements
+Accounts.config({
+	forbidClientAccountCreation: true
+});
 
 // Pour afficher un extrait d'article
 Handlebars.registerHelper('splitText', function(text) {

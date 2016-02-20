@@ -3,6 +3,7 @@
   <div id="modal">
     <div id="outer-modal"></div>
     <div id="inner-modal"></div>
+    <span id="loaderModal">Chargement du module lecteur <span class="bold">5.6</span></span>
   </div>
   <div id="loading-page">
     <div id="loading-message">
@@ -41,10 +42,10 @@
       </div>
     </div>
     <div class="wrapper-responsive">
-      {{> sidebar}}
       <div class="content">
         {{> yield}}
       </div>
+      {{> sidebar}}
     </div>
     <div class="clearfix"></div>
   </div>

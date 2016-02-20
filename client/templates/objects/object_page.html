@@ -2,14 +2,16 @@
 	<div class="module__header__bottom"><h2 class="title-current">Objet<span>object</span></h2></div>
 	<div class="content__posts">	
 		<div class="module__wrapper">
-			<span class="content__posts__date">Date : {{date}}</span>
-			<h2 class="content__posts__title">{{title}}</h2>
-			<p class="content__posts__para">{{text}}</p>
-			<div class="content__posts__extra">
-				<ul>
-					<li><img src="http://www.vetprofessionals.com/catprofessional/images/home-cat.jpg" alt=""></li>
-					<li><img src="http://www.vetprofessionals.com/catprofessional/images/home-cat.jpg" alt=""></li>
-				</ul>
+			<div id="transition-module">
+				<span class="content__posts__date">Date : {{date}}</span>
+				<h2 class="content__posts__title">{{title}}</h2>
+				<p class="content__posts__para">{{text}}</p>
+				<div class="content__posts__extra">
+					<ul>
+						<li class="modal-link" data-video="https://www.youtube.com/embed/257OBwNXUZQ"><a href="#"><img src="http://www.vetprofessionals.com/catprofessional/images/home-cat.jpg" alt=""></a></li>
+						<li class="modal-link" data-image="http://www.vetprofessionals.com/catprofessional/images/home-cat.jpg"><a href="#"><img src="http://www.vetprofessionals.com/catprofessional/images/home-cat.jpg" alt=""></a></li>
+					</ul>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -19,7 +21,7 @@
 			<ul>
 				{{#each objects}}
 				<li class="content__posts__menu__list">
-					<a href="{{pathFor 'postObject'}}"></a>
+					<a href="{{pathFor 'objectPage'}}"></a>
 					<span class="content__posts__menu__list__date">{{date}}</span>
 					<h3 class="content__posts__menu__list__title">{{title}}</h3>
 					<p class="content__posts__menu__list__extrait">{{splitText text}}</p>
@@ -38,7 +40,8 @@
 				<ul>
 					<li><p><span>ID : </span>01</p></li>
 					<li><p><span>Nom : </span>Nom de l'objet</p></li>
-					<li><p><span>Date : </span>01 / 02 / 3014</p></li>
+					<li><p><span>Date :
+					 </span>01 / 02 / 3014</p></li>
 					<li><p><span>Hauteur : </span>14cm</p></li>
 					<li><p><span>Largeur : </span>10cm</p></li>
 					<li><p><span>Poids : </span>40Kg</p></li>
@@ -46,5 +49,14 @@
 			</div>
 		</div>
 	</div>
-
+	<div style="float: left;width: 100%;">	
+		<a href="{{pathFor 'home'}}" class="content__module__link">
+		<svg class="content__module__arrow" style="enable-background:new 0 0 451.846 451.847" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" height="451.85px" viewBox="0 0 451.846 451.847" width="451.85px" version="1.1" y="0px" x="0px" xmlns:xlink="http://www.w3.org/1999/xlink"> <path d="m345.44 248.29l-194.29 194.28c-12.359 12.365-32.397 12.365-44.75 0-12.354-12.354-12.354-32.391 0-44.744l171.92-171.91-171.91-171.9c-12.354-12.359-12.354-32.394 0-44.748 12.354-12.359 32.391-12.359 44.75 0l194.29 194.28c6.177 6.18 9.262 14.271 9.262 22.366 0 8.1-3.09 16.2-9.27 22.37z"/></svg>
+		Retour à l'accueil
+		</a>
+		{{#if currentUser}}<a href="{{pathFor 'objectEdit'}}" class="content__module__link">
+		<svg class="content__module__arrow" style="enable-background:new 0 0 451.846 451.847" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" height="451.85px" viewBox="0 0 451.846 451.847" width="451.85px" version="1.1" y="0px" x="0px" xmlns:xlink="http://www.w3.org/1999/xlink"> <path d="m345.44 248.29l-194.29 194.28c-12.359 12.365-32.397 12.365-44.75 0-12.354-12.354-12.354-32.391 0-44.744l171.92-171.91-171.91-171.9c-12.354-12.359-12.354-32.394 0-44.748 12.354-12.359 32.391-12.359 44.75 0l194.29 194.28c6.177 6.18 9.262 14.271 9.262 22.366 0 8.1-3.09 16.2-9.27 22.37z"/></svg>
+		Modifier l'article
+		</a>{{/if}}
+	</div>
 </template>

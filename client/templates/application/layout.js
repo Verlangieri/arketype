@@ -14,7 +14,6 @@ Template.layout.events = {
       var urlVideo = link.data('video'); // recupere l'attribut data
       var urlImage = link.data('image'); // recupere l'attribut data
 
-      $('#modal').append('<span id="loaderModal">Chargement</span>')
       if (urlVideo){
         $('#inner-modal').append('<span id="inner-modal-close">Fermer</span><iframe id="loadedFrame" width="560" height="315" src="'+urlVideo+'" frameborder="0" allowfullscreen></iframe>') //l'insere dans la div inner modal
       }
@@ -28,9 +27,11 @@ Template.layout.events = {
         TweenMax.set(modal, {display:'block',delay:0.5});
         TweenMax.set(innerModal, {autoAlpha: 0, scale: 0});
         TweenMax.to(blurElement, 0.5, {a:6, onUpdate:applyBlur}); // 0.3s for 6px blur
+        TweenMax.to($("#loaderModal"), 0.5, {autoAlpha:1, delay:0.5});
         document.getElementById('loadedFrame').onload = function() {
           //$("#loaderModal").remove();
-          TweenMax.to(innerModal, 0.5, {autoAlpha: 1, scale: 1, ease: Power1.easeOut, delay:0.4});
+          TweenMax.to(innerModal, 0.5, {autoAlpha: 1, scale: 1, ease: Power1.easeOut, delay:1});
+          TweenMax.to($("#loaderModal"), 0.5, {autoAlpha:0, delay:0.3});
         };
     }
     
@@ -41,6 +42,7 @@ Template.layout.events = {
       function removeBlur() {
         TweenMax.set($(".wrapper"), {webkitFilter:"blur(" + blurElement.a + "px)",filter:"blur(" + blurElement.a + "px)"});
       };
+      TweenMax.set($("#loaderModal"), {autoAlpha:0});
       TweenMax.to(innerModal, 0.5, {autoAlpha: 0, ease: Power1.easeOut});
       TweenMax.to(blurElement, 0.5, {a:0, onUpdate:removeBlur, onComplete:function(){
         TweenMax.set(modal, {display:'none'});
@@ -94,13 +96,6 @@ Template.layout.events = {
         }
     }
     menuPostExtraAnimation();
-    // function backgroundAnimation(){
-    //   random = Math.floor((Math.random()*20)+(-10));
-    //   TweenMax.to($('#grid-background'), 2,{top: random});
-    //   TweenMax.to($('#grid-background'), 2,{left: random});
-    //   setTimeout(backgroundAnimation,2000);
-    // }
-    // backgroundAnimation();
   }
 }
 
@@ -108,7 +103,6 @@ Template.layout.rendered = function() {
     if(!this._rendered) {
       this._rendered = true;
 
-        if (Meteor.isClient) {
           var compteur = 70;       
           var compteurInterval = function(){
 
@@ -120,7 +114,6 @@ Template.layout.rendered = function() {
             }
           }
           Meteor.setInterval(compteurInterval,100);
-        }
 
         TweenMax.set($('.wrapper'), {autoAlpha: 1});
         TweenMax.set($('.header'), {scale: 1.3});

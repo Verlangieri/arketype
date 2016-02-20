@@ -1,16 +1,16 @@
 <template name="sidebar">
 	<!-- ####### S I D E B A R ####### -->
 	<div class="sidebar">
-		<div class="module__header__bottom"><h2>Bienvenue <span>Welcome</span></h2></div>
 		<!-- ####### C L O C K ####### -->
 		<div class="sidebar__info">
+			<div class="module__header__bottom"><h2>Bienvenue <span>Welcome</span></h2></div>
 			<div class="sidebar__info__clock">
 				<svg height="55" width="110">
 					<circle id="clock-minute" cx="55" cy="55" r="50" stroke="#508bc7" stroke-width="2" fill="transparent" />
 					<circle id="clock-hour" cx="55" cy="55" r="42" stroke="#508bc7" stroke-width="3" fill="transparent" />
 					<circle id="clock-second" cx="55" cy="55" r="35" stroke="#508bc7" stroke-width="2" fill="transparent" />
 				</svg>
-				<span id="clock-hour-text">{{hour}}</span>
+				<span id="clock-hour-text"></span>
 			</div>
 			<div class="sidebar__info__weather">
 				<ul>
@@ -18,21 +18,21 @@
 					<li><span>Lorem : </span>243 yu</li>
 					<li><span>Ipsum : </span>340 yi</li>
 					<li><span>Dolor : </span>30 tj</li>
-					<li>{{> loginButtons}}</li>
 				</ul>
 			</div>
 		</div>
+		<div class="module__header__bottom"><h2>Liens <span>Links</span></h2></div>
 		<!-- ####### B L O G ####### -->
-		<div class="sidebar__blog">
-			<a href="" class="sidebar__blog__link">
-				arketype<span>Blog</span>
+		<div class="sidebar__blog corner">
+			<a href="{{pathFor 'postsBlogList'}}" class="sidebar__blog__link">
+				arketype<span>Le Blog</span>
 			</a>
 		</div>
 		<!-- ####### G E O G R A P H I C ####### -->
-		<div class="sidebar__geo">
-			<a href="" class="sidebar__geo__link"></a>
-			<span class="sidebar__geo__cover"></span>
-			<img src="images/geographic.png" alt="">			
+		<div class="sidebar__geo corner">
+			<a href="" class="sidebar__geo__link">
+				<span class="sidebar__geo__link__geo">Geo</span>graphic<span class="sidebar__geo__link__subtitle">Global Environment Observation</span>
+			</a>			
 		</div>
 		<!-- ####### S O C I A L ####### -->
 		<div class="sidebar__social">

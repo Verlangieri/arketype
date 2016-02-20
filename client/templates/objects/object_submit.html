@@ -1,0 +1,20 @@
+<template name="objectSubmit">
+    <div class="module__header__bottom"><h2>Créer un objet <span>Objet</span></h2></div>
+      <form class="post-form">
+        <div class="module__wrapper">
+          <div>
+            <label for="date">Date</label>
+            <input name="date" id="date" type="text" value=""/>
+          </div>
+          <div>
+              <label for="title">Title</label>
+              <input name="title" id="title" type="text" value="" required/>
+          </div>
+          <div>
+              <label for="text">Contenu</label>
+              <textarea name="text" id="text" cols="60" rows="5" required></textarea>
+          </div>
+        </div>
+        <input type="submit" value="Envoyer" id="submit"/>
+      </form>
+</template>

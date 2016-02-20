@@ -1,0 +1,21 @@
+<template name="postEdit">
+    <div class="module__header__bottom"><h2>Modifier l'article<span>Article</span></h2></div>
+      <form class="post-form">
+        <div class="module__wrapper">
+          <div>
+            <label for="date">Date</label>
+            <input name="date" id="date" type="text" value="{{date}}"/>
+          </div>
+          <div>
+              <label for="title">Title</label>
+              <input name="title" id="title" type="text" value="{{title}}" required/>
+          </div>
+          <div>
+              <label for="text">Contenu</label>
+              <textarea name="text" id="text" cols="60" rows="5" required>{{text}}</textarea>
+          </div>
+        </div>
+        <input type="submit" value="Envoyer" id="submit"/>
+        <a class="delete" href="#">Supprimer le post</a>
+      </form>
+</template>
