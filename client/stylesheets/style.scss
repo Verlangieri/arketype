@@ -104,7 +104,7 @@ fieldset,hr{border:0;padding:0}html{color:#222;font-size:1em;line-height:1.4}::-
    /* Geographic */
    .sidebar__geo {padding: 16px 0;overflow: hidden;}
    .sidebar__geo__link {font-family: sol; text-transform: uppercase; text-align: center; display: block; font-size: 20px; letter-spacing: 1px; position: relative; padding-top: 10px; margin-left: -45px;}
-   .sidebar__geo__link__geo {font-family: agency; font-weight: bold;font-size: 30px; letter-spacing: initial; margin-right: 5px;}
+   .sidebar__geo__link__geo {font-family: agency; font-weight: bold;font-size: 30px; letter-spacing: initial; margin-right: 5px;position: relative;}
    .sidebar__geo__link__subtitle {    position: absolute; top: 0; right: 15px; font-size: 11px; text-transform: capitalize; font-family: agency;}
    /* Social */
    .sidebar__social__icons , .sidebar__social__module {float: left;}
@@ -200,7 +200,8 @@ fieldset,hr{border:0;padding:0}html{color:#222;font-size:1em;line-height:1.4}::-
    .content__posts__carac h3 {background-color: $secondary-color;padding: 5px;color: $primary-color;font-family: mont;text-transform: uppercase;font-size: 11px;margin-bottom: 10px;}
    .content__posts__carac p {font-family: mont-light;color: $secondary-color;text-transform: uppercase;letter-spacing: 0.5px;margin-bottom: 4px;font-size: 10px;}
    .content__posts__carac span {font-family: mont;font-weight: bold;}
-
+   
+   .post-nav-bar {float: left;width: 100%;max-width: 300px;}
    /* ==========================================================================
    Form
    ========================================================================== */

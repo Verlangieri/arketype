@@ -14,15 +14,24 @@ Template.layout.events = {
       var urlVideo = link.data('video'); // recupere l'attribut data
       var urlImage = link.data('image'); // recupere l'attribut data
 
+      function resizeModal(){
+        $(window).resize(function() {
+            TweenMax.set($("#inner-modal"), {width: $('#loadedFrame').width(), height: $('#loadedFrame').height()});
+        });
+      }
+
       if (urlVideo){     
         innerModal.append('<span id="inner-modal-close">Fermer</span><iframe id="loadedFrame" width="560" height="315" src="'+urlVideo+'" frameborder="0" allowfullscreen></iframe>') //l'insere dans la div inner modal
         TweenMax.set(innerModal, {width: $('#loadedFrame').width(), height: $('#loadedFrame').height()});
+        resizeModal();
       }
       if (urlImage){
         img = new Image();
         img.src = ''+ urlImage +'';
         img.onload = function() {
+          TweenMax.to($("#loaderModal"), 0.5, {autoAlpha:0,delay:0.5});
           TweenMax.set(innerModal, {width: this.width, height: this.height});
+          resizeModal();
         }
         innerModal.append('<span id="inner-modal-close">Fermer</span><img id="loadedFrame" src="'+urlImage+'">') //l'insere dans la div inner modal
       }
@@ -184,14 +193,6 @@ Template.layout.events = {
 Template.layout.rendered = function() {
     if(!this._rendered) {
       this._rendered = true;
-
-          function resizeModal(){
-            $(window).resize(function() {
-                TweenMax.set($("#inner-modal"), {width: $('#loadedFrame').width(), height: $('#loadedFrame').height()});
-            });
-          }
-          resizeModal();
-
 
           function loadingAnimation(){
             var compteur = 70;       
