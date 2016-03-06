@@ -5,10 +5,11 @@ Template.layout.events = {
     var modal = $("#modal");
     var innerModal = $("#inner-modal");
     var blurElement = {a:0};
-    var link = $(event.target).parent().parent();
+    var link = $(event.target)
 
     /* OUVERTURE BOITE MODAL */
     if (link.attr('class') == "modal-link"){
+      if (link.data('image') || link.data('video')){ //Si il y'a du contenu dans le data
       //console.log($(event.target));
       innerModal .empty(); // vide l'intérieur de la div
       var urlVideo = link.data('video'); // recupere l'attribut data
@@ -49,6 +50,7 @@ Template.layout.events = {
           TweenMax.to(innerModal, 0.5, {autoAlpha: 1, scale: 1, ease: Power1.easeOut, delay:1});
           TweenMax.to($("#loaderModal"), 0.5, {autoAlpha:0, delay:0.3});
         };
+      }
     }
     
     /* FERMETURE BOITE MODAL */

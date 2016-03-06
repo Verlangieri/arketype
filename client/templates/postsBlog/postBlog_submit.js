@@ -13,7 +13,11 @@ Template.postBlogSubmit.events({
     var postBlog = {
       date: datePost,
       title: $(e.target).find('[name=title]').val(),
-      text: $(e.target).find('[name=text]').val()
+      text: $(e.target).find('[name=text]').val(),
+      image1: $(e.target).find('[name=image1]').val(),
+      image2: $(e.target).find('[name=image2]').val(),
+      image3: $(e.target).find('[name=image3]').val(),
+      image4: $(e.target).find('[name=image4]').val()
     };
 
     postBlog._id = PostsBlog.insert(postBlog);
