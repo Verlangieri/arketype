@@ -253,13 +253,15 @@ fieldset,hr{border:0;padding:0}html{color:#222;font-size:1em;line-height:1.4}::-
    }
 
    @media screen and (max-width: 850px){
-
+   
+      .wrapper {overflow: hidden;}
       /* 3 COL LIST tous les articles */
       .posts-list {max-width: 32%;margin-right: 2%;}
       .posts-list:nth-of-type(2n) {margin-right: 2%}
       .posts-list:nth-of-type(3n+3) {margin-right: 0}
       
       .sidebar {width: 100%;position: static;margin-bottom: 25px;}
+      .sidebar__social {height: 25px;}
       .sidebar__geo, .sidebar__blog {display: inline-block;width: 49%;}
       .sidebar__info {display: none;}
       .content {width: 100%;left: 0;position: static;float: left;padding-bottom: 25px;}      
