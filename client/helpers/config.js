@@ -4,7 +4,7 @@ Accounts.ui.config({
 });
 // Désactive les enregistrements
 Accounts.config({
-	forbidClientAccountCreation: true
+	forbidClientAccountCreation: false
 });
 
 // Pour afficher un extrait d'article
