@@ -72,14 +72,15 @@ Template.layout.events = {
 
 
     function menuPostExtraAnimation(){
-      //VARIABLES
-        var target    = $(event.target);
-        var link    = "menu__extra__link";
-        var linkPath  = $("."+link)
-        var content   = "menu__extra__content";
+        //VARIABLES
+        var target      = $(event.target);
+        var link        = "menu__extra__link";
+        var linkPath    = $("."+link)
+        var content     = "menu__extra__content";
         var contentPath = $("."+content)
         var data;
-        var dataType  = "menu";
+        var dataType    = "menu";
+        var daeFileName;
 
         /* SI BOUTON CLICK */
           if(target.attr('class') == link && target.attr('class') != "active"){
@@ -107,6 +108,7 @@ Template.layout.events = {
           }
           if(data == "holo"){
               $('#holo-webGL').empty();
+              daeFileName = $('#holo-webGL').data("holo");
               holoWebGL('holo-webGL');
               TweenMax.staggerTo($('.content__posts__carac li'), 0.2,{autoAlpha: 1,marginTop: '0',delay: 2.4},0.1);
           }
@@ -122,7 +124,7 @@ Template.layout.events = {
       /*----Initialisation
       ----------------------------------------------*/
       /* Variables globales */
-      var renderer, scene, camera, stats, dae, clock;
+      var renderer, scene, camera, stats, dae, clock, collada, dae;
       var lunchAnimation = false;
       var container = document.getElementById(parent);
       var jContainer = $('#'+parent)
@@ -138,7 +140,7 @@ Template.layout.events = {
 
         /* Three */
         renderer = new THREE.WebGLRenderer({ antialias: true });
-        renderer.setSize( jContainer.width(), jContainer.height() );
+        renderer.setSize( jContainer.width(), jContainer.height());
         container.appendChild( renderer.domElement );
         
         scene = new THREE.Scene();
@@ -156,20 +158,38 @@ Template.layout.events = {
         var pointLight = new THREE.PointLight(0xffffff,1);
         pointLight.position.set(100, 600, 300);
         scene.add(pointLight);
+
+        var pointLight2 = new THREE.PointLight(0xffffff,0.5);
+        pointLight2.position.set(100, -600, 300);
+        scene.add(pointLight2);
       }
 
       var cube
       function initObjects(){
-        var geometry = new THREE.CubeGeometry( 1, 1, 1 );
-        var material = new THREE.MeshPhongMaterial( {color: 0x00ff00} );
-        cube = new THREE.Mesh( geometry, material );
-        scene.add( cube );
+        function initCube(){
+          var geometry = new THREE.CubeGeometry( 1, 1, 1 );
+          var material = new THREE.MeshPhongMaterial( {color: 0x00ff00} );
+          cube = new THREE.Mesh( geometry, material );
+          scene.add( cube );
+        }
+        initDAE();
+        function initDAE(){
+          var loader = new THREE.ColladaLoader();
+          loader.options.convertUpAxis = true;
+          loader.load('objectsModel/boule.DAE', function ( collada ) {
+              collada.scene.castShadow = true;
+              collada.scene.receiveShadow = true;
+              dae = collada.scene;
+              dae.updateMatrix();
+              scene.add( dae );
+          })
+        }
       }
       
       /*----Animations
       ---------------------------------*/
       function animate(){
-        cube.rotation.y += 0.01;
+        //cube.rotation.y += 0.01;
       }
       /*----Tools
       ---------------------------------*/

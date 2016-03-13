@@ -43,6 +43,7 @@ Template.objectSubmit.events({
       date: datePost,
       title: $(e.target).find('[name=title]').val(),
       text: $(e.target).find('[name=text]').val(),
+      objectUrlName: $(e.target).find('[name=objectUrlName]').val(),
       objectID: $(e.target).find('[name=objectID]').val(),
       name: $(e.target).find('[name=name]').val(),
       height: $(e.target).find('[name=height]').val(),
