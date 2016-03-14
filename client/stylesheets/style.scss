@@ -82,6 +82,7 @@ fieldset,hr{border:0;padding:0}html{color:#222;font-size:1em;line-height:1.4}::-
    .sidebar__info__weather li {margin-bottom: 3px;color: $primary-color;}
    .sidebar__info__weather li:before {display: inline-block;content: "";width: 5px;height: 5px;background: $secondary-color;vertical-align: top;margin-right: 5px;margin-top: 2px;}
    .sidebar__info__weather li span {font-family: mont;text-transform: uppercase;}
+   .indicePollution {color: $primary-color}
    @-webkit-keyframes rotate {
      from {-webkit-transform: rotateZ(0deg)}
       to {-webkit-transform: rotateZ(360deg)}
@@ -110,11 +111,11 @@ fieldset,hr{border:0;padding:0}html{color:#222;font-size:1em;line-height:1.4}::-
    /* Social */
    .sidebar__social__icons , .sidebar__social__module {float: left;}
    .sidebar__social {padding: 0 10px;margin-top: 25px;max-width: 250px;}
-   .sidebar__social__icons {width: 25%}
+   .sidebar__social__icons {width: 40%}
    .sidebar__social__icons svg {width: 23px;}
    .sidebar__social__icons path {transition: all 0.5s ease}
    .sidebar__social__icons svg:hover path{fill: $primary-color;}
-   .sidebar__social__module {width: 75%;padding-top: 5px;}
+   .sidebar__social__module {width: 60%;padding-top: 5px;}
    .sidebar__social__module__version {font-family: mont;text-transform: uppercase;font-size: 9px;border-top: 1px solid $secondary-color;position: relative;text-align: right;padding: 5px 15px 0 0;display: block;}
    .sidebar__social__module__version:before {display: block;content: "";height: 8px;width: 8px;background: $secondary-color;position: absolute;right: 0;top: -5px;}
 /* ==========================================================================
