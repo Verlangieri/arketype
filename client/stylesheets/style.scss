@@ -25,7 +25,7 @@ fieldset,hr{border:0;padding:0}html{color:#222;font-size:1em;line-height:1.4}::-
    Main style
    ========================================================================== */
    html, body, .wrapper, {margin: 0;padding: 0;min-height: 100%;width: 100%;}
-   html {padding: 30px;}
+   html {padding: 0 30px 30px 30px;}
    #loading-page {z-index: 100000;}
    #loading-message {margin: 10px}
    #loading-message p {color: $secondary-color;text-align: right;}
@@ -50,6 +50,7 @@ fieldset,hr{border:0;padding:0}html{color:#222;font-size:1em;line-height:1.4}::-
    .module__header__top{border-top: 1px solid $secondary-color;margin-bottom: 4px;padding-top: 7px;}
    /* module wrapper */
    .module__wrapper {border: 1px solid $secondary-color;padding: 10px;position: relative;}
+   .module__wrapper p {line-height: 14px;}
 /* ==========================================================================
    Header
    ========================================================================== */
@@ -109,11 +110,11 @@ fieldset,hr{border:0;padding:0}html{color:#222;font-size:1em;line-height:1.4}::-
    /* Social */
    .sidebar__social__icons , .sidebar__social__module {float: left;}
    .sidebar__social {padding: 0 10px;margin-top: 25px;max-width: 250px;}
-   .sidebar__social__icons {width: 40%}
+   .sidebar__social__icons {width: 25%}
    .sidebar__social__icons svg {width: 23px;}
    .sidebar__social__icons path {transition: all 0.5s ease}
    .sidebar__social__icons svg:hover path{fill: $primary-color;}
-   .sidebar__social__module {width: 60%;padding-top: 5px;}
+   .sidebar__social__module {width: 75%;padding-top: 5px;}
    .sidebar__social__module__version {font-family: mont;text-transform: uppercase;font-size: 9px;border-top: 1px solid $secondary-color;position: relative;text-align: right;padding: 5px 15px 0 0;display: block;}
    .sidebar__social__module__version:before {display: block;content: "";height: 8px;width: 8px;background: $secondary-color;position: absolute;right: 0;top: -5px;}
 /* ==========================================================================
@@ -123,7 +124,7 @@ fieldset,hr{border:0;padding:0}html{color:#222;font-size:1em;line-height:1.4}::-
    /* Resume */
    .content__module__resume {float: left;width: 63.5%;margin-bottom: 20px;}
    .content__module__resume .module__wrapper {border: 1px dashed $secondary-color;}
-   .content__module__resume h2 {font-family: mont;color: $primary-color;font-size: 14px;margin-bottom: 15px;}
+   .content__module__resume h2 {font-family: mont;color: $primary-color;font-size: 14px;margin-bottom: 10px;}
    .content__module__resume p {font-family: mont-light;font-size: 11px;color: $secondary-color;}
 
 /* ==========================================================================
@@ -156,7 +157,7 @@ fieldset,hr{border:0;padding:0}html{color:#222;font-size:1em;line-height:1.4}::-
    ========================================================================== */
    .content__posts {width: 66%;float: left;}
    .content__posts__date {font-size: 11px;font-family: mont;letter-spacing: 1px;float: right;}
-   .content__posts__title {font-size: 14px;font-family: mont;color: $primary-color;margin-bottom: 5px; margin-top: 8px; display: inline-block;}
+   .content__posts__title {font-size: 14px;font-family: mont;color: $primary-color; margin-bottom: 5px;margin-top: 20px;display: inline-block;}
    .content__posts__para {color: $secondary-color;min-height: 150px;font-family: mont-light;}
    .content__posts__extra {border-top: 1px solid $secondary-color;width: 100%;padding-top: 15px;margin-top: 15px;}
    .content__posts__extra li {width: 100px;height: 100px;display: inline-block;overflow: hidden;border: 1px solid $secondary-color;margin-right: 10px;}

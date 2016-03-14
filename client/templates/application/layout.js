@@ -109,7 +109,7 @@ Template.layout.events = {
           if(data == "holo"){
               $('#holo-webGL').empty();
               daeFileName = $('#holo-webGL').data("holo");
-              holoWebGL('holo-webGL');
+              //holoWebGL('holo-webGL');
               TweenMax.staggerTo($('.content__posts__carac li'), 0.2,{autoAlpha: 1,marginTop: '0',delay: 2.4},0.1);
           }
           /* AJOUTE OU RETIRE LE ACTIVE */
@@ -119,7 +119,6 @@ Template.layout.events = {
     }
     menuPostExtraAnimation();
 
-    //content__posts__holo__viewer
     function holoWebGL(parent){
       /*----Initialisation
       ----------------------------------------------*/
@@ -127,7 +126,7 @@ Template.layout.events = {
       var renderer, scene, camera, stats, dae, clock, collada, dae;
       var lunchAnimation = false;
       var container = document.getElementById(parent);
-      var jContainer = $('#'+parent)
+      var jContainer = $('#'+parent);
       /* Lancement des fonctions */
       initSetup(); // Execute les parametres de Three.js
       initLights(); // Execute les lumieres
@@ -185,7 +184,6 @@ Template.layout.events = {
           })
         }
       }
-      
       /*----Animations
       ---------------------------------*/
       function animate(){
