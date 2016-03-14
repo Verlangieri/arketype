@@ -9,10 +9,14 @@ Template.postBlogSubmit.events({
       var options = {year: "numeric", month: "short", day: "numeric"};
       datePost = datePost.toLocaleDateString("fr-FR", options);
     }
+
+    //Remplace les espaces
+    var postText = $('textarea[name="text"]').val();
+        postText = postText.replace(/\r?\n/g, '<br />');
     
     var postBlog = {
       date: datePost,
-      title: $(e.target).find('[name=title]').val(),
+      title: postText,
       text: $(e.target).find('[name=text]').val(),
       image1: $(e.target).find('[name=image1]').val(),
       image2: $(e.target).find('[name=image2]').val(),

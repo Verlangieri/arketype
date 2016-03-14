@@ -37,12 +37,14 @@ Template.objectSubmit.events({
       //   });
       // }
 
+    //Remplace les espaces
+    var postText = $('textarea[name="text"]').val();
+        postText = postText.replace(/\r?\n/g, '<br />');
 
-   
     var postObject = {
       date: datePost,
       title: $(e.target).find('[name=title]').val(),
-      text: $(e.target).find('[name=text]').val(),
+      text: postText,
       objectUrlName: $(e.target).find('[name=objectUrlName]').val(),
       objectID: $(e.target).find('[name=objectID]').val(),
       name: $(e.target).find('[name=name]').val(),

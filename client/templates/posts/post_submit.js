@@ -10,10 +10,13 @@ Template.postSubmit.events({
       datePost = datePost.toLocaleDateString("fr-FR", options);
     }
     
+    var postText = $('textarea[name="text"]').val();
+        postText = postText.replace(/\r?\n/g, '<br />');
+
     var postArticle = {
       date: datePost,
       title: $(e.target).find('[name=title]').val(),
-      text: $(e.target).find('[name=text]').val(),
+      text: postText,
       image1: $(e.target).find('[name=image1]').val(),
       image2: $(e.target).find('[name=image2]').val(),
       image3: $(e.target).find('[name=image3]').val(),
