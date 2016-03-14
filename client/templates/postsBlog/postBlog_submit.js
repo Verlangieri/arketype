@@ -16,8 +16,8 @@ Template.postBlogSubmit.events({
     
     var postBlog = {
       date: datePost,
-      title: postText,
-      text: $(e.target).find('[name=text]').val(),
+      title: $(e.target).find('[name=title]').val(),
+      text: postText,
       image1: $(e.target).find('[name=image1]').val(),
       image2: $(e.target).find('[name=image2]').val(),
       image3: $(e.target).find('[name=image3]').val(),
