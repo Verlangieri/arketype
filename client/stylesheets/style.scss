@@ -142,7 +142,7 @@ fieldset,hr{border:0;padding:0}html{color:#222;font-size:1em;line-height:1.4}::-
 /* ==========================================================================
    Content
    ========================================================================== */
-   .content {position: absolute;top:0px;left:280px;right:0px;}
+   .content {position: absolute;top:0px;left:280px;right:0px;padding-bottom: 50px;}
    /* Resume */
    .content__module__resume {float: left;width: 63.5%;margin-bottom: 20px;}
    .content__module__resume .module__wrapper {border: 1px dashed $secondary-color;}
