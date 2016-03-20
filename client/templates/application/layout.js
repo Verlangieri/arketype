@@ -109,6 +109,7 @@ Template.layout.events = {
           if(data == "holo"){
               $('#holo-webGL').empty();
               daeFileName = $('#holo-webGL').data("holo");
+              $('#holo-webGL').append('<iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://geo-graphic.fr/objets/'+daeFileName+'/index.html"></iframe>');
               //holoWebGL('holo-webGL');
               TweenMax.staggerTo($('.content__posts__carac li'), 0.2,{autoAlpha: 1,marginTop: '0',delay: 2.4},0.1);
           }
@@ -118,95 +119,6 @@ Template.layout.events = {
         }
     }
     menuPostExtraAnimation();
-
-    function holoWebGL(parent){
-      /*----Initialisation
-      ----------------------------------------------*/
-      /* Variables globales */
-      var renderer, scene, camera, stats, dae, clock, collada, dae;
-      var lunchAnimation = false;
-      var container = document.getElementById(parent);
-      var jContainer = $('#'+parent);
-      /* Lancement des fonctions */
-      initSetup(); // Execute les parametres de Three.js
-      initLights(); // Execute les lumieres
-      initObjects(); // Execute les differents objets de la scene
-      render();
-
-      /*----initSetup
-      ---------------------------------*/
-      function initSetup(){
-
-        /* Three */
-        renderer = new THREE.WebGLRenderer({ antialias: true });
-        renderer.setSize( jContainer.width(), jContainer.height());
-        container.appendChild( renderer.domElement );
-        
-        scene = new THREE.Scene();
-        camera = new THREE.PerspectiveCamera( 45, jContainer.width() / jContainer.height(), 0.1, 1000 );
-        camera.position.z = 5; // Distance du centre de la scene
-
-        controls = new THREE.OrbitControls(camera,renderer.domElement);
-        
-      }
-
-      function initLights(){
-        var ambientLight = new THREE.AmbientLight(0x2f2f2f);
-        scene.add(ambientLight);
-
-        var pointLight = new THREE.PointLight(0xffffff,1);
-        pointLight.position.set(100, 600, 300);
-        scene.add(pointLight);
-
-        var pointLight2 = new THREE.PointLight(0xffffff,0.5);
-        pointLight2.position.set(100, -600, 300);
-        scene.add(pointLight2);
-      }
-
-      var cube
-      function initObjects(){
-        function initCube(){
-          var geometry = new THREE.CubeGeometry( 1, 1, 1 );
-          var material = new THREE.MeshPhongMaterial( {color: 0x00ff00} );
-          cube = new THREE.Mesh( geometry, material );
-          scene.add( cube );
-        }
-        initDAE();
-        function initDAE(){
-          var loader = new THREE.ColladaLoader();
-          loader.options.convertUpAxis = true;
-          loader.load('objectsModel/boule.DAE', function ( collada ) {
-              collada.scene.castShadow = true;
-              collada.scene.receiveShadow = true;
-              dae = collada.scene;
-              dae.updateMatrix();
-              scene.add( dae );
-          })
-        }
-      }
-      /*----Animations
-      ---------------------------------*/
-      function animate(){
-        //cube.rotation.y += 0.01;
-      }
-      /*----Tools
-      ---------------------------------*/
-      /* Resize le render au redimensionnement de la fenetre*/
-      function onWindowResize(){
-          camera.aspect = jContainer.width() / jContainer.height();
-          camera.updateProjectionMatrix();
-          renderer.setSize( jContainer.width(), jContainer.height() );
-      }
-      window.addEventListener( 'resize', onWindowResize, false );
-
-      /*----Render
-      ---------------------------------*/
-      function render() {
-        animate();
-        requestAnimationFrame( render );
-        renderer.render( scene, camera );
-      }
-    }
   }
 }
 
