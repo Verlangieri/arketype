@@ -18,6 +18,9 @@ Template.layout.events = {
       function resizeModal(){
         $(window).resize(function() {
             TweenMax.set($("#inner-modal"), {width: $('#loadedFrame').width(), height: $('#loadedFrame').height()});
+            if ($('#loadedFrame').width() > $("body").width()){
+                TweenMax.set($('#loadedFrame'), {width: 600});
+            }
         });
       }
 
@@ -47,7 +50,14 @@ Template.layout.events = {
         TweenMax.to($("#loaderModal"), 0.5, {autoAlpha:1, delay:0.5});
         document.getElementById('loadedFrame').onload = function() {
           //$("#loaderModal").remove();
-          TweenMax.to(innerModal, 0.5, {autoAlpha: 1, scale: 1, ease: Power1.easeOut, delay:1});
+          TweenMax.to(innerModal, 0.5, {autoAlpha: 1, scale: 1, ease: Power1.easeOut, delay:1, onComplete:function(){
+            console.log('trop grand : '+$('#loadedFrame').width());
+            // Ajuste la taille de l'image
+            if ($('#loadedFrame').width() > $("body").width()){
+                TweenMax.set($('#loadedFrame'),{width: 600});
+                TweenMax.set($("#inner-modal"), {width: $('#loadedFrame').width(), height: $('#loadedFrame').height()});
+            }
+          }});
           TweenMax.to($("#loaderModal"), 0.5, {autoAlpha:0, delay:0.3});
         };
       }

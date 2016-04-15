@@ -300,7 +300,7 @@ fieldset,hr{border:0;padding:0}html{color:#222;font-size:1em;line-height:1.4}::-
    
       /* modal */
       #inner-modal {width: 80%!important;}
-      #inner-modal img {width: 100%;}
+      #inner-modal img {width: 100%!important;}
       #inner-modal iframe, #inner-modal object, #inner-modal embed {top: 0; left: 0; width: 100%; }
       /* 2 COL LIST tous les articles */
       .posts-list {max-width: 49%;margin-right: 2%}
